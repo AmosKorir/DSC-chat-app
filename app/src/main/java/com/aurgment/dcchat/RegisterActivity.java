@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,6 +57,8 @@ public class RegisterActivity extends AppCompatActivity {
               startActivity(new Intent(RegisterActivity.this, ChatBoardActivity.class));
               //ignore finish
               finish();
+            }else {
+              Toast.makeText(RegisterActivity.this, "Registration fialed", Toast.LENGTH_SHORT).show();
             }
           }
         });

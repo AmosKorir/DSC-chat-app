@@ -34,6 +34,7 @@ public class ChatBoardActivity extends AppCompatActivity {
     // initialize firebase viriable
     mDatabase = FirebaseDatabase.getInstance();
     databaseReference = mDatabase.getReference();
+    readMessages();
 
     messageEdit = findViewById(R.id.messageTxt);
     messageRecyclerView = findViewById(R.id.messageRecyclerView);
@@ -52,7 +53,7 @@ public class ChatBoardActivity extends AppCompatActivity {
 
 
   /*
-    we are a message to the database
+    we are writing message to the database
    */
 
   private void sendMessage(String message) {
@@ -66,7 +67,7 @@ public class ChatBoardActivity extends AppCompatActivity {
     msg.setMessage(message);
     msg.setMessageId(messageRef.getKey());
 
-    messageRef.child("msg").setValue(message);
+    messageRef.setValue(msg);
   }
 
   /*
